@@ -1,0 +1,584 @@
+{
+  "course": {
+    "slug": "dsa-interview-mastery",
+    "title": "DSA Interview Mastery",
+    "description": "A 20-week guided journey from arrays to dynamic programming — theory, interactive visualizations, and progressively unlocked problems."
+  },
+  "phases": [
+    {
+      "slug": "linear-patterns",
+      "title": "Linear Patterns",
+      "description": "Master contiguous-structure thinking — the patterns behind ~40% of all interview questions.",
+      "weeks": [
+        {
+          "slug": "arrays-strings-complexity",
+          "title": "Arrays, Strings & Complexity",
+          "goal": "Read and write array/string code fluently and reason about its cost.",
+          "chapters": [
+            {
+              "slug": "how-to-measure-code",
+              "title": "How to Measure Code",
+              "description": "Big-O, time vs space, amortized analysis"
+            },
+            {
+              "slug": "array-mechanics",
+              "title": "Array Mechanics",
+              "description": "Traversal, in-place mutation, swaps, rotation"
+            },
+            {
+              "slug": "string-mechanics",
+              "title": "String Mechanics",
+              "description": "Immutability, building, frequency counting"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Rotate array, product except self, string compression"
+            }
+          ]
+        },
+        {
+          "slug": "two-pointers",
+          "title": "Two Pointers",
+          "goal": "Replace nested loops with converging or chasing pointers.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Why two pointers beat nested loops"
+            },
+            {
+              "slug": "opposite-ends",
+              "title": "Opposite Ends",
+              "description": "Converging pointers on sorted data"
+            },
+            {
+              "slug": "same-direction",
+              "title": "Same Direction",
+              "description": "Slow/fast pointers, partitioning, dedup"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "3Sum, container with most water, trapping rain water"
+            }
+          ]
+        },
+        {
+          "slug": "sliding-window",
+          "title": "Sliding Window",
+          "goal": "Maintain a moving window and the running state inside it.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "The window as a reusable computation"
+            },
+            {
+              "slug": "fixed-window",
+              "title": "Fixed Window",
+              "description": "Max sum subarray of size k, averages"
+            },
+            {
+              "slug": "variable-window",
+              "title": "Variable Window",
+              "description": "Grow/shrink, longest substring patterns"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Minimum window substring, sliding window maximum"
+            }
+          ]
+        },
+        {
+          "slug": "hashing-prefix-sums",
+          "title": "Hashing & Prefix Sums",
+          "goal": "Trade memory for speed with hash maps and prefix sums.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "O(1) lookup as a superpower; hash maps vs sets"
+            },
+            {
+              "slug": "frequency-grouping",
+              "title": "Frequency & Grouping",
+              "description": "Counting, anagram groups, top-k frequent"
+            },
+            {
+              "slug": "prefix-sums",
+              "title": "Prefix Sums",
+              "description": "Running totals, range queries, sum-to-k"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Subarray sum equals k, longest consecutive sequence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "core-data-structures",
+      "title": "Core Data Structures",
+      "description": "Own the structures interviews are built on — and the search/sort patterns that exploit order.",
+      "weeks": [
+        {
+          "slug": "stacks-queues",
+          "title": "Stacks & Queues",
+          "goal": "Use LIFO/FIFO order and monotonic structure to track pending work.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "LIFO/FIFO mental models, when each wins"
+            },
+            {
+              "slug": "classic-stack-patterns",
+              "title": "Classic Stack Patterns",
+              "description": "Matching pairs, expression evaluation, min stack"
+            },
+            {
+              "slug": "monotonic-stack",
+              "title": "Monotonic Stack",
+              "description": "Next greater element, spans"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Daily temperatures, largest rectangle in histogram"
+            }
+          ]
+        },
+        {
+          "slug": "linked-lists",
+          "title": "Linked Lists",
+          "goal": "Manipulate pointer-based structures without losing nodes.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Nodes, pointers, dummy heads"
+            },
+            {
+              "slug": "reversal-patterns",
+              "title": "Reversal Patterns",
+              "description": "Iterative and recursive reversal, reverse in groups"
+            },
+            {
+              "slug": "fast-slow-pointers",
+              "title": "Fast & Slow Pointers",
+              "description": "Cycle detection, middle, intersection"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Reorder list, merge k lists, LRU cache"
+            }
+          ]
+        },
+        {
+          "slug": "binary-search",
+          "title": "Binary Search",
+          "goal": "Halve the search space with disciplined invariants.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Invariants, off-by-one discipline, templates"
+            },
+            {
+              "slug": "search-on-arrays",
+              "title": "Search on Arrays",
+              "description": "Exact match, boundaries, rotated arrays"
+            },
+            {
+              "slug": "search-on-answer-space",
+              "title": "Search on Answer Space",
+              "description": "Min capacity / max speed style problems"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Median of two sorted arrays, peak finding"
+            }
+          ]
+        },
+        {
+          "slug": "sorting-intervals",
+          "title": "Sorting & Intervals",
+          "goal": "Exploit order: sort first, then sweep.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Comparison sorts, stability, when O(n log n) matters"
+            },
+            {
+              "slug": "sorting-as-preprocessing",
+              "title": "Sorting as Preprocessing",
+              "description": "Custom comparators, bucket/counting sort"
+            },
+            {
+              "slug": "interval-patterns",
+              "title": "Interval Patterns",
+              "description": "Merge, insert, overlap detection"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Meeting rooms II, non-overlapping intervals, sweep line"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "recursion-trees",
+      "title": "Recursion & Trees",
+      "description": "Think recursively with confidence — the gateway to trees, backtracking, and DP.",
+      "weeks": [
+        {
+          "slug": "recursion-backtracking",
+          "title": "Recursion & Backtracking",
+          "goal": "Enumerate solution spaces with recursion and prune dead branches.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Call stack, base cases, recursion trees"
+            },
+            {
+              "slug": "generate-all-possibilities",
+              "title": "Generate All Possibilities",
+              "description": "Subsets, permutations, combinations"
+            },
+            {
+              "slug": "constraint-backtracking",
+              "title": "Constraint Backtracking",
+              "description": "Pruning, valid placements"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Word search, palindrome partitioning, N-Queens"
+            }
+          ]
+        },
+        {
+          "slug": "binary-trees",
+          "title": "Binary Trees",
+          "goal": "Decompose tree problems into subtree answers.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Tree anatomy, recursive structure"
+            },
+            {
+              "slug": "depth-first-traversals",
+              "title": "Depth-First Traversals",
+              "description": "Pre/in/post-order, path problems"
+            },
+            {
+              "slug": "breadth-first-traversals",
+              "title": "Breadth-First Traversals",
+              "description": "Level order, zigzag, right-side view"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Diameter, max path sum, serialize/deserialize"
+            }
+          ]
+        },
+        {
+          "slug": "bst-tree-patterns",
+          "title": "Binary Search Trees & Tree Patterns",
+          "goal": "Exploit the BST invariant and reconstruct trees from traversals.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "The BST invariant and what it buys you"
+            },
+            {
+              "slug": "bst-operations",
+              "title": "BST Operations",
+              "description": "Search, insert, validate, kth smallest"
+            },
+            {
+              "slug": "ancestor-construction-patterns",
+              "title": "Ancestor & Construction Patterns",
+              "description": "LCA, build from traversals"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Recover BST, BST iterator, count nodes"
+            }
+          ]
+        },
+        {
+          "slug": "heaps-priority-queues",
+          "title": "Heaps & Priority Queues",
+          "goal": "Keep the best k of anything with heaps.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Heap property, array representation, O(log n) operations"
+            },
+            {
+              "slug": "top-k-patterns",
+              "title": "Top-K Patterns",
+              "description": "Kth largest, k closest, frequency-based"
+            },
+            {
+              "slug": "two-heap-streaming",
+              "title": "Two-Heap & Streaming Patterns",
+              "description": "Median from stream, scheduling"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Merge k sorted lists, task scheduler, IPO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "graphs-advanced-search",
+      "title": "Graphs & Advanced Search",
+      "description": "Model anything as a graph and pick the right traversal instantly.",
+      "weeks": [
+        {
+          "slug": "graph-fundamentals",
+          "title": "Graph Fundamentals",
+          "goal": "Model problems as graphs and traverse them.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Representations: adjacency list/matrix, grids as graphs"
+            },
+            {
+              "slug": "depth-first-search",
+              "title": "Depth-First Search",
+              "description": "Components, flood fill, cycle detection"
+            },
+            {
+              "slug": "breadth-first-search",
+              "title": "Breadth-First Search",
+              "description": "Shortest path in unweighted graphs, multi-source BFS"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Number of islands, rotting oranges, clone graph"
+            }
+          ]
+        },
+        {
+          "slug": "toposort-union-find",
+          "title": "Topological Sort & Union-Find",
+          "goal": "Order dependencies and merge components.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "DAGs, dependency thinking, disjoint sets"
+            },
+            {
+              "slug": "topological-sort",
+              "title": "Topological Sort",
+              "description": "Kahn's algorithm, DFS ordering, cycle detection"
+            },
+            {
+              "slug": "union-find",
+              "title": "Union-Find",
+              "description": "Union by rank, path compression"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Course schedule II, redundant connection, accounts merge"
+            }
+          ]
+        },
+        {
+          "slug": "shortest-paths",
+          "title": "Shortest Paths & Weighted Graphs",
+          "goal": "Find optimal paths in weighted graphs.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "When BFS stops working: weights"
+            },
+            {
+              "slug": "dijkstra",
+              "title": "Dijkstra's Algorithm",
+              "description": "Priority-queue implementation, variants"
+            },
+            {
+              "slug": "other-path-algorithms",
+              "title": "Other Path Algorithms",
+              "description": "Bellman-Ford intuition, MST (Prim/Kruskal)"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Network delay time, cheapest flights with k stops, swim in rising water"
+            }
+          ]
+        },
+        {
+          "slug": "tries-string-patterns",
+          "title": "Tries & Advanced String Patterns",
+          "goal": "Search by prefix with tries.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Prefix trees, when hashing isn't enough"
+            },
+            {
+              "slug": "trie-implementation",
+              "title": "Trie Implementation",
+              "description": "Insert, search, startsWith, wildcard"
+            },
+            {
+              "slug": "string-matching-patterns",
+              "title": "String Matching Patterns",
+              "description": "Prefix/suffix tricks, rolling hash intuition"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Word search II, design add & search words, autocomplete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dp-mastery",
+      "title": "Dynamic Programming & Mastery",
+      "description": "Turn the hardest interview topic into a repeatable framework, then consolidate everything.",
+      "weeks": [
+        {
+          "slug": "dp-foundations",
+          "title": "DP Foundations (1-D)",
+          "goal": "Recognize overlapping subproblems and cache them.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Overlapping subproblems, memoization vs tabulation"
+            },
+            {
+              "slug": "decision-patterns",
+              "title": "Decision Patterns",
+              "description": "Climbing stairs, house robber family"
+            },
+            {
+              "slug": "unbounded-choice",
+              "title": "Unbounded Choice",
+              "description": "Coin change, combination counting"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Word break, longest increasing subsequence, decode ways"
+            }
+          ]
+        },
+        {
+          "slug": "dp-grids-strings",
+          "title": "DP on Grids & Strings (2-D)",
+          "goal": "Fill 2-D tables over grids and string pairs.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "2-D state spaces, table-filling order"
+            },
+            {
+              "slug": "grid-dp",
+              "title": "Grid DP",
+              "description": "Unique paths, min path sum, obstacles"
+            },
+            {
+              "slug": "string-dp",
+              "title": "String DP",
+              "description": "LCS, edit distance, palindromic substrings"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Distinct subsequences, interleaving string, regex matching"
+            }
+          ]
+        },
+        {
+          "slug": "advanced-dp-greedy",
+          "title": "Advanced DP & Greedy",
+          "goal": "Spot knapsack patterns and know when greedy wins.",
+          "chapters": [
+            {
+              "slug": "introduction",
+              "title": "Introduction",
+              "description": "Recognizing knapsack, interval, and state-machine DP"
+            },
+            {
+              "slug": "knapsack-patterns",
+              "title": "Knapsack Patterns",
+              "description": "0/1 knapsack, partition equal subset, target sum"
+            },
+            {
+              "slug": "greedy-exchange-arguments",
+              "title": "Greedy & Exchange Arguments",
+              "description": "When greedy beats DP, proof intuition"
+            },
+            {
+              "slug": "advanced-applications",
+              "title": "Advanced Applications",
+              "description": "Buy/sell with cooldown, burst balloons, jump game II"
+            }
+          ]
+        },
+        {
+          "slug": "capstone",
+          "title": "Capstone: Interview Simulation",
+          "goal": "Integrate everything under interview conditions.",
+          "chapters": [
+            {
+              "slug": "pattern-recognition-drills",
+              "title": "Pattern Recognition Drills",
+              "description": "Mixed problems, identify-the-pattern speed runs"
+            },
+            {
+              "slug": "mock-interview-set-a",
+              "title": "Mock Interview Set A",
+              "description": "Timed medium problems across all phases"
+            },
+            {
+              "slug": "mock-interview-set-b",
+              "title": "Mock Interview Set B",
+              "description": "Timed medium/hard problems across all phases"
+            },
+            {
+              "slug": "final-boss",
+              "title": "Final Boss",
+              "description": "Hardest curated set + full-course revision queue"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

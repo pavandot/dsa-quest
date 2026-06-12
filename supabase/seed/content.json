@@ -1,0 +1,147 @@
+[
+  {
+    "week": "arrays-strings-complexity",
+    "chapter": "how-to-measure-code",
+    "lesson": "theory",
+    "content": [
+      {
+        "type": "text",
+        "md": "## Why measure code at all?\n\nTwo solutions can both be *correct* and still be worlds apart. One finds an answer in milliseconds on a million items; the other would still be running next week. Interviews — and production systems — care about the second axis: **cost**.\n\nWe measure cost in two currencies:\n\n- **Time** — how many steps the algorithm takes as input grows\n- **Space** — how much extra memory it needs as input grows\n\nThe key phrase is *as input grows*. We don't care that your laptop runs something in 3 ms. We care about the **shape of the growth curve**."
+      },
+      {
+        "type": "text",
+        "md": "## Big-O: the vocabulary of growth\n\nBig-O notation describes the **upper bound** of that growth curve, keeping only the dominant term and dropping constants.\n\n| Big-O | Name | Mental model |\n|---|---|---|\n| O(1) | Constant | Grab one item from a known shelf |\n| O(log n) | Logarithmic | Halve the search space each step |\n| O(n) | Linear | Look at every item once |\n| O(n log n) | Linearithmic | Sort's natural habitat |\n| O(n²) | Quadratic | Compare every pair |\n| O(2ⁿ) | Exponential | Try every subset — danger zone |\n\nIf you remember one ranking, remember this one. In interviews, moving an answer one row *up* this table is usually the whole game."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "caption": "Same problem, two growth curves",
+        "code": "// O(n²) — compares every pair\nfunction hasDuplicateSlow(nums) {\n  for (let i = 0; i < nums.length; i++) {\n    for (let j = i + 1; j < nums.length; j++) {\n      if (nums[i] === nums[j]) return true\n    }\n  }\n  return false\n}\n\n// O(n) — trades memory for speed\nfunction hasDuplicateFast(nums) {\n  const seen = new Set()\n  for (const x of nums) {\n    if (seen.has(x)) return true\n    seen.add(x)\n  }\n  return false\n}"
+      },
+      {
+        "type": "callout",
+        "variant": "tip",
+        "md": "**Drop constants, keep the dominant term.** O(2n + 10) is just O(n). O(n² + n) is just O(n²). Big-O is about the *shape* at scale, not the exact step count."
+      },
+      {
+        "type": "text",
+        "md": "## Space complexity and a word on \"amortized\"\n\nSpace complexity counts **extra** memory your algorithm allocates — the input itself is free. `hasDuplicateFast` above is O(n) space because the set can grow to hold every element; the slow version is O(1) space. That's the classic **time ↔ space trade-off**, and you'll make it deliberately all course long.\n\nOne more word you'll meet: **amortized**. A dynamic array (like a JavaScript array) occasionally doubles its capacity — an expensive O(n) moment — but spread across all the cheap appends, the *average* push is O(1). We say push is *amortized O(1)*. The occasional spike is paid for by the many cheap operations around it."
+      }
+    ]
+  },
+  {
+    "week": "arrays-strings-complexity",
+    "chapter": "how-to-measure-code",
+    "lesson": "guided-example",
+    "content": [
+      {
+        "type": "text",
+        "md": "## Guided example: analyzing Two Sum\n\nLet's analyze a real interview classic end to end. **Problem:** given an array `nums` and a `target`, return the indices of two numbers that add up to `target`.\n\n### Attempt 1 — brute force\n\nThe most direct idea: try every pair."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "caption": "Attempt 1 — every pair, O(n²) time, O(1) space",
+        "code": "function twoSum(nums, target) {\n  for (let i = 0; i < nums.length; i++) {\n    for (let j = i + 1; j < nums.length; j++) {\n      if (nums[i] + nums[j] === target) return [i, j]\n    }\n  }\n  return []\n}"
+      },
+      {
+        "type": "text",
+        "md": "Count the work: the outer loop runs n times, the inner loop up to n times for each — about n²/2 comparisons. Dropping the constant ½: **O(n²) time**. No extra memory: **O(1) space**.\n\n### Attempt 2 — ask a better question\n\nWalking through the array, for each number `x` we don't need to *search* for a partner — we need to know: **\"have I already seen `target − x`?\"** A hash map answers that in O(1)."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "caption": "Attempt 2 — one pass with a map, O(n) time, O(n) space",
+        "code": "function twoSum(nums, target) {\n  const seen = new Map() // value → index\n  for (let i = 0; i < nums.length; i++) {\n    const need = target - nums[i]\n    if (seen.has(need)) return [seen.get(need), i]\n    seen.set(nums[i], i)\n  }\n  return []\n}"
+      },
+      {
+        "type": "visualization",
+        "kind": "complexity-growth",
+        "config": { "curves": ["n", "n^2"], "maxN": 1000 }
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "md": "**The pattern behind the pattern.** We didn't get faster by clever micro-optimization — we *restructured the question* so a data structure could answer it instantly. That single move (trade O(n) memory to kill an inner loop) reappears in dozens of problems you'll meet."
+      }
+    ]
+  },
+  {
+    "week": "arrays-strings-complexity",
+    "chapter": "how-to-measure-code",
+    "lesson": "quiz",
+    "quiz": {
+      "title": "Big-O fundamentals",
+      "pass_threshold": 70,
+      "questions": [
+        {
+          "prompt": "What is the time complexity of this snippet?\n\nfor (let i = 0; i < n; i++) {\n  for (let j = 0; j < n; j++) {\n    count++\n  }\n}",
+          "options": ["O(n)", "O(n log n)", "O(n²)", "O(2ⁿ)"],
+          "correct_index": 2,
+          "explanation": "Two nested loops, each running n times → n × n = n² increments."
+        },
+        {
+          "prompt": "O(3n + 20) simplifies to…",
+          "options": ["O(3n)", "O(n)", "O(n + 20)", "O(1)"],
+          "correct_index": 1,
+          "explanation": "Big-O drops constant factors and lower-order terms: 3n + 20 grows linearly, so O(n)."
+        },
+        {
+          "prompt": "An algorithm halves its search space on every step. Its time complexity is…",
+          "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+          "correct_index": 1,
+          "explanation": "Repeated halving reaches 1 in log₂(n) steps — the signature of binary search."
+        },
+        {
+          "prompt": "hasDuplicateFast uses a Set that may hold every input element. Its SPACE complexity is…",
+          "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+          "correct_index": 2,
+          "explanation": "Extra memory grows linearly with input size — the set can hold all n elements."
+        },
+        {
+          "prompt": "JavaScript array push is 'amortized O(1)' because…",
+          "options": [
+            "every push is exactly one step",
+            "occasional expensive resizes average out across many cheap pushes",
+            "the engine optimizes it away",
+            "arrays never resize"
+          ],
+          "correct_index": 1,
+          "explanation": "Capacity doubling is O(n) occasionally, but spread over all pushes the average cost per push is constant."
+        }
+      ]
+    }
+  },
+  {
+    "week": "arrays-strings-complexity",
+    "chapter": "how-to-measure-code",
+    "lesson": "practice",
+    "content": [
+      {
+        "type": "text",
+        "md": "## Practice\n\nThe in-browser problem workspace (editor, test runner, submissions) ships with the Practice engine. Until then, this lesson is a free pass — mark it complete and keep moving.\n\nWhen problems land here, this chapter's set will be:\n\n1. **Contains Duplicate** — apply the time/space trade-off you just learned\n2. **Two Sum** — the guided example, now hands-on\n3. **Valid Anagram** — frequency counting warm-up"
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "md": "Solved problems will enter your spaced-repetition queue automatically (1 → 3 → 7 → 14 → 30 days)."
+      }
+    ]
+  },
+  {
+    "week": "arrays-strings-complexity",
+    "chapter": "how-to-measure-code",
+    "lesson": "revision",
+    "content": [
+      {
+        "type": "text",
+        "md": "## Chapter checkpoint\n\nBefore moving on, you should be able to answer these without looking:\n\n- What does Big-O actually describe? *(the growth **shape** of cost as input scales — constants dropped)*\n- Rank these fastest-growing last: O(n log n), O(1), O(2ⁿ), O(n), O(log n), O(n²)\n- Why is `hasDuplicateFast` O(n) **space**? What did it buy us?\n- What does *amortized* O(1) mean for array push?\n\nIf any of these feel shaky, skim the theory lesson once more — the rest of the course leans on this vocabulary constantly."
+      },
+      {
+        "type": "callout",
+        "variant": "tip",
+        "md": "**Habit to build now:** after every problem you ever solve, state its time and space complexity out loud. In interviews this is expected unprompted."
+      }
+    ]
+  }
+]

@@ -27,6 +27,7 @@ const { data: course } = await admin
   .eq('slug', 'dsa-interview-mastery')
   .single()
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRec = Record<string, any>
 const byPos = (rows: AnyRec[]) => [...rows].sort((a, b) => a.position - b.position)
 const flat: AnyRec[] = []

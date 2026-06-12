@@ -876,7 +876,12 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      complete_lesson: {
+        Args: { p_lesson_id: string; p_quiz_score?: number; p_user_id: string }
+        Returns: Json
+      }
       is_admin: { Args: never; Returns: boolean }
+      level_from_xp: { Args: { p_xp: number }; Returns: number }
     }
     Enums: {
       attempt_verdict: 'passed' | 'failed' | 'error' | 'timeout'

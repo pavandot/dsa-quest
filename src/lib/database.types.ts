@@ -882,6 +882,21 @@ export type Database = {
       }
       is_admin: { Args: never; Returns: boolean }
       level_from_xp: { Args: { p_xp: number }; Returns: number }
+      submit_problem_attempt: {
+        Args: {
+          p_code: string
+          p_language: string
+          p_passed: number
+          p_problem_id: string
+          p_runtime_ms?: number
+          p_test_results?: Json
+          p_total: number
+          p_user_id: string
+          p_verdict: Database['public']['Enums']['attempt_verdict']
+        }
+        Returns: Json
+      }
+      touch_streak: { Args: { p_user_id: string }; Returns: number }
     }
     Enums: {
       attempt_verdict: 'passed' | 'failed' | 'error' | 'timeout'

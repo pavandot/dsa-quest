@@ -14,6 +14,8 @@ import { BlockRenderer } from '@/features/lessons/components/block-renderer'
 import { CompleteButton } from '@/features/lessons/components/complete-button'
 import { QuizRunner } from '@/features/lessons/components/quiz-runner'
 import { getLessonContent, getQuiz } from '@/features/lessons/server/queries'
+import { LessonProblemList } from '@/features/problems/components/lesson-problem-list'
+import { getLessonProblems, getSolvedProblemIds } from '@/features/problems/server/queries'
 import { getCompletedLessonIds } from '@/features/progress/server/queries'
 import { createClient } from '@/lib/supabase/server'
 
@@ -54,9 +56,15 @@ export default async function LessonPage({ params }: { params: Promise<Params> }
   const prev = flat[target.index - 1]
   const nextHref = next ? hrefFor(next) : '/learn'
 
-  const [blocks, quiz] = await Promise.all([
+  const [blocks, quiz, lessonProblems, solvedIds] = await Promise.all([
     getLessonContent(target.lesson.id),
     target.lesson.type === 'quiz' ? getQuiz(target.lesson.id) : Promise.resolve(null),
+    target.lesson.type === 'practice' || target.lesson.type === 'revision'
+      ? getLessonProblems(target.lesson.id)
+      : Promise.resolve([]),
+    target.lesson.type === 'practice' || target.lesson.type === 'revision'
+      ? getSolvedProblemIds(user.id)
+      : Promise.resolve(new Set<string>()),
   ])
 
   const lessonNumber = target.chapter.lessons.findIndex((l) => l.id === target.lesson.id) + 1
@@ -89,6 +97,10 @@ export default async function LessonPage({ params }: { params: Promise<Params> }
       <Separator />
 
       <BlockRenderer blocks={blocks} />
+
+      {lessonProblems.length > 0 && (
+        <LessonProblemList problems={lessonProblems} solvedIds={solvedIds} />
+      )}
 
       {quiz && quiz.questions.length > 0 ? (
         <QuizRunner

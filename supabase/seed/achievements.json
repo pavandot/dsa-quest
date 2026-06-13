@@ -1,0 +1,164 @@
+[
+  {
+    "slug": "first-blood",
+    "title": "First Blood",
+    "description": "Solve your very first problem.",
+    "icon": "Target",
+    "category": "Solving",
+    "xp_reward": 25,
+    "criteria": { "type": "problems_solved", "count": 1 }
+  },
+  {
+    "slug": "problem-slayer",
+    "title": "Problem Slayer",
+    "description": "Solve 10 problems.",
+    "icon": "Swords",
+    "category": "Solving",
+    "xp_reward": 75,
+    "criteria": { "type": "problems_solved", "count": 10 }
+  },
+  {
+    "slug": "centurion",
+    "title": "Centurion",
+    "description": "Solve 50 problems.",
+    "icon": "Crown",
+    "category": "Solving",
+    "xp_reward": 200,
+    "criteria": { "type": "problems_solved", "count": 50 }
+  },
+  {
+    "slug": "getting-started",
+    "title": "Getting Started",
+    "description": "Complete your first lesson.",
+    "icon": "BookOpen",
+    "category": "Learning",
+    "xp_reward": 15,
+    "criteria": { "type": "lessons_completed", "count": 1 }
+  },
+  {
+    "slug": "scholar",
+    "title": "Scholar",
+    "description": "Complete 25 lessons.",
+    "icon": "GraduationCap",
+    "category": "Learning",
+    "xp_reward": 100,
+    "criteria": { "type": "lessons_completed", "count": 25 }
+  },
+  {
+    "slug": "chapter-clear",
+    "title": "Chapter Clear",
+    "description": "Complete your first chapter.",
+    "icon": "BookCheck",
+    "category": "Learning",
+    "xp_reward": 40,
+    "criteria": { "type": "chapters_completed", "count": 1 }
+  },
+  {
+    "slug": "week-warrior",
+    "title": "Week Warrior",
+    "description": "Complete 4 chapters — a full week's worth.",
+    "icon": "CalendarCheck",
+    "category": "Learning",
+    "xp_reward": 120,
+    "criteria": { "type": "chapters_completed", "count": 4 }
+  },
+  {
+    "slug": "on-a-roll",
+    "title": "On a Roll",
+    "description": "Keep a 3-day streak.",
+    "icon": "Flame",
+    "category": "Streaks",
+    "xp_reward": 30,
+    "criteria": { "type": "streak", "count": 3 }
+  },
+  {
+    "slug": "habit-formed",
+    "title": "Habit Formed",
+    "description": "Keep a 7-day streak.",
+    "icon": "Flame",
+    "category": "Streaks",
+    "xp_reward": 75,
+    "criteria": { "type": "streak", "count": 7 }
+  },
+  {
+    "slug": "unstoppable",
+    "title": "Unstoppable",
+    "description": "Keep a 30-day streak.",
+    "icon": "Flame",
+    "category": "Streaks",
+    "xp_reward": 300,
+    "criteria": { "type": "streak", "count": 30 }
+  },
+  {
+    "slug": "memory-lane",
+    "title": "Memory Lane",
+    "description": "Complete your first spaced-repetition review.",
+    "icon": "Repeat2",
+    "category": "Mastery",
+    "xp_reward": 20,
+    "criteria": { "type": "reviews_completed", "count": 1 }
+  },
+  {
+    "slug": "spaced-out",
+    "title": "Spaced Out",
+    "description": "Complete 25 reviews.",
+    "icon": "Repeat2",
+    "category": "Mastery",
+    "xp_reward": 120,
+    "criteria": { "type": "reviews_completed", "count": 25 }
+  },
+  {
+    "slug": "locked-in",
+    "title": "Locked In",
+    "description": "Master your first problem (clear the full review ladder).",
+    "icon": "Brain",
+    "category": "Mastery",
+    "xp_reward": 60,
+    "criteria": { "type": "problems_mastered", "count": 1 }
+  },
+  {
+    "slug": "mind-palace",
+    "title": "Mind Palace",
+    "description": "Master 10 problems.",
+    "icon": "Brain",
+    "category": "Mastery",
+    "xp_reward": 250,
+    "criteria": { "type": "problems_mastered", "count": 10 }
+  },
+  {
+    "slug": "rising-star",
+    "title": "Rising Star",
+    "description": "Reach level 5.",
+    "icon": "Star",
+    "category": "Progression",
+    "xp_reward": 50,
+    "criteria": { "type": "level", "count": 5 }
+  },
+  {
+    "slug": "veteran",
+    "title": "Veteran",
+    "description": "Reach level 10.",
+    "icon": "Medal",
+    "category": "Progression",
+    "xp_reward": 150,
+    "criteria": { "type": "level", "count": 10 }
+  },
+  {
+    "slug": "array-adept",
+    "title": "Array Adept",
+    "description": "Solve 3 array problems.",
+    "icon": "Grid3x3",
+    "category": "Patterns",
+    "xp_reward": 50,
+    "criteria": { "type": "tag_solved", "tag": "array", "count": 3 }
+  },
+  {
+    "slug": "hashing-hero",
+    "title": "Hashing Hero",
+    "description": "Solve 2 hash-map problems.",
+    "icon": "Hash",
+    "category": "Patterns",
+    "xp_reward": 40,
+    "criteria": { "type": "tag_solved", "tag": "hash-map", "count": 2 }
+  }
+]

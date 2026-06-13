@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
+import { awardAchievements, type NewAchievement } from '@/features/achievements/server/award'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
@@ -13,6 +14,7 @@ export type CompleteLessonResult =
       level: number
       streak: number
       alreadyCompleted: boolean
+      newAchievements: NewAchievement[]
     }
   | { ok: false; error: string }
 
@@ -61,8 +63,11 @@ export async function completeLesson(input: {
     streak: number
   }
 
+  const newAchievements = await awardAchievements(user.id)
+
   revalidatePath('/dashboard')
   revalidatePath('/learn', 'layout')
+  if (newAchievements.length > 0) revalidatePath('/achievements')
 
   return {
     ok: true,
@@ -71,5 +76,6 @@ export async function completeLesson(input: {
     level: result.level,
     streak: result.streak,
     alreadyCompleted: result.already_completed,
+    newAchievements,
   }
 }

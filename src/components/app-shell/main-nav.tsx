@@ -9,6 +9,7 @@ const LINKS = [
   { href: '/learn', label: 'Learn' },
   { href: '/practice', label: 'Practice' },
   { href: '/reviews', label: 'Reviews' },
+  { href: '/achievements', label: 'Achievements' },
 ]
 
 export function MainNav() {

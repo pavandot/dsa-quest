@@ -13,8 +13,10 @@
     "seed:curriculum": "tsx scripts/seed-curriculum.ts",
     "test:auth": "tsx scripts/auth-smoke-test.mts",
     "test:reviews": "tsx scripts/review-ladder-test.mts",
+    "test:achievements": "tsx scripts/achievements-test.mts",
     "seed:content": "tsx scripts/seed-content.ts",
-    "seed:problems": "tsx scripts/seed-problems.ts"
+    "seed:problems": "tsx scripts/seed-problems.ts",
+    "seed:achievements": "tsx scripts/seed-achievements.ts"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",

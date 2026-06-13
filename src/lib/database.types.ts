@@ -880,6 +880,10 @@ export type Database = {
         Args: { p_lesson_id: string; p_quiz_score?: number; p_user_id: string }
         Returns: Json
       }
+      evaluate_achievements: {
+        Args: { p_user_id: string }
+        Returns: Json
+      }
       is_admin: { Args: never; Returns: boolean }
       level_from_xp: { Args: { p_xp: number }; Returns: number }
       submit_problem_attempt: {

@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
+import { awardAchievements, type NewAchievement } from '@/features/achievements/server/award'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
@@ -18,6 +19,7 @@ export type SubmitResult =
       reviewXp: number
       reviewStatus: 'new' | 'learning' | 'practicing' | 'mastered' | null
       reviewDueAt: string | null
+      newAchievements: NewAchievement[]
     }
   | { ok: false; error: string }
 
@@ -73,9 +75,12 @@ export async function submitAttempt(input: z.infer<typeof inputSchema>): Promise
     streak: number
   }
 
+  const newAchievements = await awardAchievements(user.id)
+
   revalidatePath('/practice', 'layout')
   revalidatePath('/dashboard')
   revalidatePath('/reviews')
+  if (newAchievements.length > 0) revalidatePath('/achievements')
 
   return {
     ok: true,
@@ -89,5 +94,6 @@ export async function submitAttempt(input: z.infer<typeof inputSchema>): Promise
     reviewXp: result.review_xp,
     reviewStatus: result.review_status,
     reviewDueAt: result.review_due_at,
+    newAchievements,
   }
 }

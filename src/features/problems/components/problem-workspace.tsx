@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
+import { toastAchievements } from '@/features/achievements/toast'
 import { submitAttempt } from '@/features/problems/actions'
 import { browserExecutor } from '@/features/problems/executor/browser-executor'
 import type { RunSummary } from '@/features/problems/executor/types'
@@ -94,6 +95,7 @@ export function ProblemWorkspace({
         toast.error(response.error)
         return
       }
+      toastAchievements(response.newAchievements)
       const dueDays = response.reviewDueAt
         ? Math.max(1, Math.round((new Date(response.reviewDueAt).getTime() - Date.now()) / 864e5))
         : null

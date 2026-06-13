@@ -5,6 +5,7 @@ import { useTransition } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
+import { toastAchievements } from '@/features/achievements/toast'
 import { completeLesson } from '@/features/progress/actions'
 
 export function CompleteButton({
@@ -43,6 +44,7 @@ export function CompleteButton({
               description: `Streak: ${result.streak} day${result.streak === 1 ? '' : 's'} · Level ${result.level}`,
             })
           }
+          toastAchievements(result.newAchievements)
           router.push(nextHref)
         })
       }

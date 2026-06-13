@@ -13,6 +13,11 @@ export type SubmitResult =
       totalXp: number
       level: number
       streak: number
+      reviewAdvanced: boolean
+      reviewLapsed: boolean
+      reviewXp: number
+      reviewStatus: 'new' | 'learning' | 'practicing' | 'mastered' | null
+      reviewDueAt: string | null
     }
   | { ok: false; error: string }
 
@@ -58,6 +63,11 @@ export async function submitAttempt(input: z.infer<typeof inputSchema>): Promise
   const result = data as {
     first_solve: boolean
     xp_awarded: number
+    review_xp: number
+    review_advanced: boolean
+    review_lapsed: boolean
+    review_status: 'new' | 'learning' | 'practicing' | 'mastered' | null
+    review_due_at: string | null
     total_xp: number
     level: number
     streak: number
@@ -74,5 +84,10 @@ export async function submitAttempt(input: z.infer<typeof inputSchema>): Promise
     totalXp: result.total_xp,
     level: result.level,
     streak: result.streak,
+    reviewAdvanced: result.review_advanced,
+    reviewLapsed: result.review_lapsed,
+    reviewXp: result.review_xp,
+    reviewStatus: result.review_status,
+    reviewDueAt: result.review_due_at,
   }
 }

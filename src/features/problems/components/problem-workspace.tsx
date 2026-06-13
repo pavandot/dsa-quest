@@ -94,15 +94,31 @@ export function ProblemWorkspace({
         toast.error(response.error)
         return
       }
+      const dueDays = response.reviewDueAt
+        ? Math.max(1, Math.round((new Date(response.reviewDueAt).getTime() - Date.now()) / 864e5))
+        : null
       if (result.verdict === 'passed') {
         setSolved(true)
-        if (response.firstSolve) {
+        if (response.reviewAdvanced) {
+          if (response.reviewStatus === 'mastered') {
+            toast.success(`Review complete — Mastered! +${response.reviewXp} XP`, {
+              description: `Top of the ladder. Next review in ${dueDays} days.`,
+            })
+          } else {
+            toast.success(`Review complete! +${response.reviewXp} XP`, {
+              description: `Next review in ${dueDays} day${dueDays === 1 ? '' : 's'} · now ${response.reviewStatus} · Streak: ${response.streak}`,
+            })
+          }
+        } else if (response.firstSolve) {
           toast.success(`Solved! +${response.xpAwarded} XP`, {
             description: `Review scheduled for tomorrow · Streak: ${response.streak} day${response.streak === 1 ? '' : 's'}`,
           })
         } else {
           toast.success('Passed again — already in your review queue.')
         }
+        router.refresh()
+      } else if (response.reviewLapsed) {
+        toast.warning('Review lapsed — back to the start of the ladder. Due again tomorrow.')
         router.refresh()
       }
     })

@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "seed:curriculum": "tsx scripts/seed-curriculum.ts",
     "test:auth": "tsx scripts/auth-smoke-test.mts",
+    "test:reviews": "tsx scripts/review-ladder-test.mts",
     "seed:content": "tsx scripts/seed-content.ts",
     "seed:problems": "tsx scripts/seed-problems.ts"
   },
